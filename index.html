@@ -134,8 +134,6 @@
     opacity: 1;
   }
 
-
-
   .dropdownBackground {
     width:100px;
     height:100px;
@@ -214,11 +212,13 @@
 
   function handleEnter() {
     this.classList.add('trigger-enter');
-    setTimeeout(() => this.classList.add('trigger-enter-active'), 150);
+    setTimeout(() => this.classList.add('trigger-enter-active'), 150);
+    background.classList.add('open');
   }
 
   function handleLeave() {
-
+    this.classList.remove('trigger-enter', 'trigger-enter-active');
+    background.classList.remove('open');
   }
 
   triggers.forEach(trigger => trigger.addEventListener('mouseenter, handleEnter'));
